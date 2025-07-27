@@ -1,0 +1,39 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{Table des mati\`eres}{3}{chapter*.1}%
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Le plan}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}L'organisme d'accueil}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}La ou les missions}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Le contexte}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Votre contribution}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Votre bilan}{9}{section.2.5}%
+\contentsline {chapter}{\numberline {3}La forme}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Typographie}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}L'orthographe et la grammaire}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Le style}{11}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Numérotez}{12}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Les illustrations}{12}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Le niveau de détail}{12}{section.3.6}%
+\contentsline {section}{\numberline {3.7}La bibliographie}{13}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Conclusion}{15}{chapter.4}%
+\contentsline {chapter}{\numberline {A}La soutenance}{17}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Checklist pour le mémoire}{19}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Structuration du document}{19}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Présentation de l'entreprise}{19}{section.B.2}%
+\contentsline {section}{\numberline {B.3}Présentation des missions}{19}{section.B.3}%
+\contentsline {section}{\numberline {B.4}Présentation du travail effectué}{19}{section.B.4}%
+\contentsline {section}{\numberline {B.5}Conclusions/réflexions}{20}{section.B.5}%
+\contentsline {section}{\numberline {B.6}Expression}{20}{section.B.6}%
+\contentsline {section}{\numberline {B.7}Orthographe/grammaire}{20}{section.B.7}%
+\contentsline {section}{\numberline {B.8}Iconographie}{20}{section.B.8}%
+\contentsline {section}{\numberline {B.9}Bibliographie}{20}{section.B.9}%
+\contentsline {chapter}{\numberline {C}Checklist pour la soutenance}{21}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Structuration}{21}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Présentation du contexte et des objectifs}{21}{section.C.2}%
+\contentsline {section}{\numberline {C.3}Présentation du travail réalisé}{21}{section.C.3}%
+\contentsline {section}{\numberline {C.4}Bilan, conclusion, réflexions}{21}{section.C.4}%
+\contentsline {section}{\numberline {C.5}Qualité des diapos}{21}{section.C.5}%
+\contentsline {section}{\numberline {C.6}Gestion du temps}{22}{section.C.6}%
+\contentsline {section}{\numberline {C.7}Élocution, discours, posture}{22}{section.C.7}%
+\contentsline {section}{\numberline {C.8}Réponses aux questions}{22}{section.C.8}%
+\contentsline {chapter}{\numberline {D}Bibliographie}{23}{appendix.D}%
