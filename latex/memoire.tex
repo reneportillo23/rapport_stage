@@ -251,7 +251,7 @@ la conception des produits de l'entreprise. Chez Shift, les data scientists —
 appelés « DS » — sont organisés par régions géographiques. La direction globale
 des DS est assurée par M. Arnaud Grapinet. La région Europe-Amériques est quant
 à elle supervisée par M. Maxime Paul, tandis que les DS dédiés à l'Amérique 
-latine et à l'Espagne travaillent sous la responsabilité de Mme Sabrina Maldonado.
+latine et à l'Espagne travaillent sous la direction de Mme Sabrina Maldonado.
 
 Les data scientists interagissent directement avec les clients ainsi qu'avec les 
 experts en détection de fraude. À ce titre, la maîtrise native de la langue de la 
@@ -362,69 +362,66 @@ Malgré tout, ces scénarios permettent de détecter des fraudes qui auraient pa
 \subsection{Mise en production}
 
 Une fois tous ces éléments mis en place, on peut commencer à recevoir les sinistres et les données du client de façon 
-journalière. Les analyses sont effectuées dans les heures qui suivent, et les enquêteurs de sinistres peuvent se connecter 
+journalière. Le traitement et analyse sont effectuées dans les heures qui suivent, et les enquêteurs de sinistres peuvent se connecter 
 à une interface graphique où on retrouve toutes les alertes avec un score spécifique pour faire le tri de façon plus efficace. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.80\textwidth]{interfacegraphique.png}
+    \caption{Interface  Graphique de Force}
+    \label{fig:entonnoir}
+\end{figure}
 
 
 
 
 
 \section{Méthodes, outils et logiciels}
+\subsection*{Outils et technologies utilisés}
 
-\begin {figure} [htbp]
-    \begin {center}
-	\includegraphics [width=.35\textwidth] {entonnoir.pdf}
-    \end {center}
-    \label {fig:entonnoir}
-    \caption {Description de l'organisme : du plus large jusqu'à vous.}
-\end {figure}
+Au cours de ce stage, j'ai eu l'opportunité de travailler sur des projets variés, nécessitant la mobilisation de plusieurs technologies, langages de programmation et outils professionnels.
 
-La figure~\ref {fig:entonnoir} présente la démarche : évoquer le
-groupe au plus haut niveau (ses activités, son chiffre d'affaires, sa
-présence dans le monde, le nombre d'employés, etc.), puis présenter
-la filiale française et ainsi de suite jusqu'à arriver à l'équipe
-dans laquelle vous vous situez (en précisant ses missions, le nombre
-de personnes, etc.) et votre place dans cette équipe.
+\begin{itemize}
+    \item \textbf{Langages de programmation} : Le développement back-end du logiciel \textit{FORCE} est majoritairement en \textbf{C\#}, donc ceci a constitué 
+    le langage principal de ce stage. Par ailleurs, l'ensemble des travaux relatifs à l'intelligence artificielle et à l'apprentissage automatique a été mené en \textbf{Python}, en s'appuyant 
+    sur des bibliothèques standards telles que \textit{NumPy}, \textit{pandas}, \textit{matplotlib} et \textit{LightGBM}.
+    
+    \item \textbf{Stockage et traitement des données} : Le stockage des données ainsi qu'un prétraitement partiel ont été effectués à l'aide de \textbf{SQL Server}.
+    
+    \item \textbf{Environnement de développement (IDE)} : L'IDE principal utilisé était \textbf{JetBrains Rider}, offrant une intégration fluide avec les différents composants de l'écosystème .NET, ainsi que des outils de débogage avancés.
+    
+    \item \textbf{Contrôle de version} : Le suivi des versions et la gestion collaborative du code ont été assurés via \textbf{Git}, avec l'assistance de l'interface graphique \textbf{Git Extensions}.
+    
+    \item \textbf{Intégration et déploiement continus} : Les outils \textbf{TeamCity} et \textbf{Octopus Deploy} ont été employés pour automatiser les processus d'intégration continue et de déploiement.
+\end{itemize}
 
-Évitez de recopier un site Web : cela se voit et ça énerve souvent
-le rapporteur. Rédigez un texte avec vos propres mots : même s'il y a
-des maladresses, cela passera beaucoup mieux.
 
-Notez que la présentation de la structure d'accueil est obligatoire,
-même si vous savez que cette structure est bien connue de votre
-rapporteur (par exemple pour un stage réalisé dans le laboratoire
-ICube). L'exercice imposé est de présenter cette structure, et tous
-les stagiaires sont évalués sur ce critère, sans exception.
+\section {Les missions}
 
-\section {La ou les missions}
-    \label {sec:mission}
+Les missions au cours du stage furent
 
-En tant que stagiaire, vous avez une ou plusieurs missions définies
-correspondant à la durée de votre stage. Le rapporteur ne connaît
-vraisemblablement pas ces missions. Décrivez-les, de préférence assez
-tôt dans le mémoire, en les mettant en perspective par rapport aux
-besoins de l'organisme. De plus, donnez les contraintes particulières
-(financières, technique ou autres) ainsi que les objectifs à atteindre,
-qui permettront d'évaluer ou non la réussite du projet.
+\begin{itemize}
+    \item \textbf{Création, amélioration et calibration de scénarios classiques} : Chez Shift, la plupart
+     des data scientists sont assignés à un ou plusieurs clients. Leur mission principale consiste à assurer
+      le suivi de la solution logicielle, développer des scénarios adaptés et les présenter aux clients.
+       Dans ce cadre, j’ai apporté un appui à mon encadrant de stage sur des projets impliquant trois clients d’Amérique latine.
+       J'ai donc participé à l'amélioration et correction de nombreux scénarios, et au suivi du client.
+    
+    \item \textbf{Machine Learning} : J’ai entraîné plusieurs modèles pour deux clients en Espagne. Ce travail comprenait 
+    la génération de jeux de données, le prétraitement des variables, 
+    la détection de fuites (\textit{leakage}) dans les données, l’entraînement des modèles ainsi que leur mise en production.
+    
+    \item \textbf{Développement de cas démos} : J’ai collaboré avec l’équipe \textit{PreSales} dans le développement
+     de quinze cas démos, destinés à illustrer les capacités techniques de la solution auprès de clients potentiels.
+\end{itemize}
 
-\section {Le contexte}
 
-Le contexte technique ou organisationnel doit être présenté.
-Rappelez-vous que votre rapporteur a une bonne maîtrise des concepts
-techniques, mais qu'il n'a pas connaissance des contraintes particulières
-liées à votre organisme d'accueil ou à son métier.
 
-N'abusez pas du contexte : vous devez présenter le minimum pour permettre
-au rapporteur de comprendre les contraintes spécifiques de votre stage
-et votre contribution. Pas plus.
+\chapter{Les missions}
 
-Enfin, évitez le \frquote{\emph{bullshit}} : les documents de
-présentation des organismes abusent souvent de phrases toutes faites qui
-ne veulent rien dire comme \frquote{l'entreprise X place ses clients au
-cœur de ses préoccupations} ou encore \frquote{le laboratoire Y est un
-laboratoire d'excellence caractérisé par le haut niveau scientifique
-de ses équipes}. On attend de vous que vous restiez factuel.
+\section{Amélioration et création de scénarios}
 
+Les scénarios sont au cœur de la solution Force. En effet
 
 \section {Votre contribution}
 

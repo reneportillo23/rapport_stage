@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.13)  27 JUL 2025 20:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.13)  30 JUL 2025 23:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -350,12 +350,12 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<logo-ufr.pdf, id=192, 213.79875pt x 37.13875pt>
+<logo-ufr.pdf, id=196, 213.79875pt x 37.13875pt>
 File: logo-ufr.pdf Graphic file (type pdf)
 <use logo-ufr.pdf>
 Package pdftex.def Info: logo-ufr.pdf  used on input line 59.
 (pdftex.def)             Requested size: 230.46748pt x 40.03444pt.
-<logo-entreprise.jpeg, id=193, 200.75pt x 200.75pt>
+<logo-entreprise.jpeg, id=197, 200.75pt x 200.75pt>
 File: logo-entreprise.jpeg Graphic file (type jpg)
 <use logo-entreprise.jpeg>
 Package pdftex.def Info: logo-entreprise.jpeg  used on input line 126.
@@ -419,7 +419,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--199
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7] [8]
-<Mapping.pdf, id=286, 722.7pt x 406.51875pt>
+<Mapping.pdf, id=291, 722.7pt x 406.51875pt>
 File: Mapping.pdf Graphic file (type pdf)
 <use Mapping.pdf>
 Package pdftex.def Info: Mapping.pdf  used on input line 286.
@@ -437,51 +437,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 339--341
 
  []
 
-<entonnoir.pdf, id=304, 200.75pt x 110.4125pt>
-File: entonnoir.pdf Graphic file (type pdf)
-<use entonnoir.pdf>
-Package pdftex.def Info: entonnoir.pdf  used on input line 368.
-(pdftex.def)             Requested size: 159.33821pt x 87.64104pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10] [11 <./entonnoir.pdf>] [12]
+ [10]
+<interfacegraphique.png, id=314, 1416.29124pt x 678.535pt>
+File: interfacegraphique.png Graphic file (type png)
+<use interfacegraphique.png>
+Package pdftex.def Info: interfacegraphique.png  used on input line 370.
+(pdftex.def)             Requested size: 364.19667pt x 174.4788pt.
+ [11 <./interfacegraphique.png>] [12]
 Chapitre 3.
 [13
 
-] [14] [15] [16
+] [14]
+Chapitre 4.
+[15
 
 ]
-Chapitre 4.
-[17] [18
+
+LaTeX Warning: Reference `sec:mission' on page 16 undefined on input line 543.
+
+
+LaTeX Warning: Reference `sec:mission' on page 16 undefined on input line 544.
+
+[16] [17] [18
+
+]
+Chapitre 5.
+[19] [20
 
 ]
 Annexe A.
-[19]
+[21]
 
 pdfTeX warning: pdflatex (file ./duree-prez.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<duree-prez.pdf, id=381, 465.74pt x 60.225pt>
+<duree-prez.pdf, id=389, 465.74pt x 60.225pt>
 File: duree-prez.pdf Graphic file (type pdf)
 <use duree-prez.pdf>
-Package pdftex.def Info: duree-prez.pdf  used on input line 718.
+Package pdftex.def Info: duree-prez.pdf  used on input line 723.
 (pdftex.def)             Requested size: 455.24411pt x 58.87029pt.
-[20 <./duree-prez.pdf>]
+[22 <./duree-prez.pdf>]
 Annexe B.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 739.
+(Font)              scaled to size 10.42007pt on input line 744.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 739.
+(Font)              scaled to size 7.91925pt on input line 744.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 739.
+(Font)              scaled to size 10.42007pt on input line 744.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 739.
-[21
-
-] [22]
-Annexe C.
+(Font)              scaled to size 7.91925pt on input line 744.
 [23
 
-] [24] (./memoire.bbl
+] [24]
+Annexe C.
+[25
+
+] [26] (./memoire.bbl
 Annexe D.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 7.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -504,7 +516,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
 \T1/phv/m/n/10.95 le-[]traitement-[]documentaire / citer-[]ses-[]sources-[]et-[]presenter-[]une-[]bibliographie-[]lycee . html$[]
  []
 
-) [25
+) [27
 
 
 ] (./memoire.aux)
@@ -514,24 +526,27 @@ L3 programming layer <2024-01-22>
  ***********
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `memoire.out' has not changed.
-(rerunfilecheck)             Checksum: EBEC4B664B36EE0FF06FB4D9CD60B066;7462.
+(rerunfilecheck)             Checksum: ACB10E0C83B16092E056135D6C3302BC;7681.
  ) 
 Here is how much of TeX's memory you used:
- 12436 strings out of 474222
- 190921 string characters out of 5748733
+ 12441 strings out of 474222
+ 191004 string characters out of 5748733
  1938975 words of memory out of 5000000
- 34421 multiletter control sequences out of 15000+600000
+ 34422 multiletter control sequences out of 15000+600000
  597973 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,381b,710s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,381b,728s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on memoire.pdf (25 pages, 176627 bytes).
+Output written on memoire.pdf (27 pages, 352766 bytes).
 PDF statistics:
- 476 PDF objects out of 1000 (max. 8388607)
- 420 compressed objects within 5 object streams
- 90 named destinations out of 1000 (max. 500000)
- 402 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 485 PDF objects out of 1000 (max. 8388607)
+ 427 compressed objects within 5 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 410 words of extra memory for PDF output out of 10000 (max. 10000000)
 
