@@ -320,10 +320,16 @@ Ce qui nous permettra d'avoir un historique des "entités" liées au sinistres, 
 \subsection{Scénarios et détéction de fraude}
 
 Par la suite les données seront traités par des algorithmes spécifiques qu'on appelle 
-des scénarios. Les scénarios analysent les données ou une partie des données et lancent des alertes 
+des scénarios. Un scénario de fraude correspond à un comportement frauduleux précis et défini
+avec le client en amont et avec son équipe de gestionnaires de fraude.
+
+Les scénarios analysent les données ou une partie des données et lancent des alertes 
 sous certaines contraintes.  On retrouve globalement deux types de scénarios\\
 
 \textbf{- Rule Based Scenario: } Il s'agit de scénarios qui déclenchent une alerte si, et seulement si, certaines conditions sont remplies.  
+Les conditions à remplir sont nommées des \textbf{variables primaires} et sont souvent des conditions booléennes. 
+Par la suite, on a des \textbf{variables secondaires ou explicatives} qui aidents les gestionnaires de fraude 
+a mieux comprendre la suspicion.   
 On retrouve des scénarios standards valables pour tous les clients et toutes les régions géographiques, mais qui sont paramétrés spécifiquement pour chaque client.
 
 L'exemple le plus parlant est celui du scénario de souscription récente~: une alerte est déclenchée lorsqu'un assuré déclare un sinistre quelques jours seulement 
@@ -418,10 +424,62 @@ Les missions au cours du stage furent
 
 
 \chapter{Les missions}
-
+\label {chap:contexte}
 \section{Amélioration et création de scénarios}
 
-Les scénarios sont au cœur de la solution Force. En effet
+Les scénarios sont au cœur de la solution de Shift. Une fois les données correctement 
+mappées, les scénarios analysent les sinistres et, si certaines conditions sont 
+remplies, une alerte est envoyée au client. On appelle \textbf{alert rate} le 
+pourcentage d'alertes envoyées par sinistres analysés. À partir du nombre d'alertes 
+envoyées, on obtient le \textbf{taux de transformation}, qui correspond au 
+pourcentage d'alertes s'avérant être des fraudes.
+
+Ainsi, l'objectif est d'envoyer le moins d'alertes possible (réduire les faux 
+positifs), tout en garantissant que les alertes envoyées soient effectivement 
+frauduleuses (améliorer la précision). Pour réduire le nombre d'alertes, il est 
+souvent nécessaire d'effectuer une calibration des scénarios, c'est-à-dire de modifier 
+les conditions d'alertement.
+
+Plusieurs modifications ont été apportées en collaboration avec le client au cours du 
+stage. Voici une liste non exhaustive des ajustements effectués :
+
+\begin{itemize}
+    \item Augmentation de l'alertement pour les véhicules haut de gamme dans plusieurs 
+          scénarios.
+    \item Réduction, voire suppression, de l'alertement pour les véhicules appartenant 
+          à une même entreprise ou bénéficiant d'un contrat d'assurance spécifique.
+    \item Diminution de l'alertement pour les véhicules ayant passé un contrôle 
+          technique récent.
+    \item Élargissement des conditions du scénario lié à une souscription récente.
+\end{itemize}
+
+Une fois les modifications implémentées dans le code, une analyse d'impact est 
+nécessaire afin d'évaluer l'effet de ces changements sur la performance des 
+scénarios. Par exemple : si l'on diminue l'alertement, perd-on des cas de fraude ? 
+Si l'on élargit les conditions pour générer plus d'alertes, observe-t-on une hausse 
+des faux positifs ? Et surtout, dans quelle mesure ces ajustements sont-ils 
+pertinents pour le client ?
+
+L'analyse est effectuée à partir des sinistres enregistrés au cours des six derniers 
+mois. Elle permet de présenter au client les éléments suivants :
+
+\begin{itemize}
+    \item L'évolution du taux d'alertement.
+    \item L'évolution du taux de transformation.
+    \item Le nombre estimé de fraudes supplémentaires détectées ou, au contraire, 
+          perdues.
+\end{itemize}
+
+Dans le cas du scénario lié à une souscription récente, les conditions d'alertement 
+ont été élargies. Sur 144\,000 sinistres analysés en trois mois, le nombre d'alertes 
+est passé de 112 à 146, tandis que les fraudes détectées sont passées de 3 à 6.
+
+Au cours du stage, nous avons réalisé en moyenne une calibration par semaine.
+
+Cependant, modifier les scénarios existants ne suffit pas. En début de trimestre, 
+des actions sont définies pour effectuer des modifications majeures ou pour créer de 
+nouveaux scénarios à partir de zéro. Voici deux exemples de scénarios que j'ai 
+développés au cours de ce stage.
 
 \section {Votre contribution}
 
