@@ -17,6 +17,10 @@
     \usepackage {mathpazo}
     \usepackage [scaled] {helvet}
     \usepackage {courier}
+    \usepackage{tikz}
+    \usetikzlibrary{arrows.meta,positioning}
+    \usepackage{float} % pour [H] si tu veux forcer la position des figures
+
 
     % pour certains symboles mathématiques peu fréquents, dont \square
     \usepackage {amssymb}
@@ -32,7 +36,8 @@
     % Utilisation d'url
     \usepackage {hyperref}
     \urlstyle {sf}
-
+    \usepackage{booktabs} % déjà nécessaire pour \toprule etc.
+    \usepackage{caption} 
     % Utilisation d'images
     \usepackage{graphicx}
     \setkeys {Gin} {keepaspectratio}	% par défaut : conserver les proportions
@@ -338,7 +343,7 @@ Ce type de situation peut faire naître un soupçon quant à la possibilité que
 Cependant, les paramètres — comme le seuil de jours à partir duquel le scénario est déclenché — varient d'un client à l'autre. Tous ces détails 
 sont éclaircis en amont de la mise en production. 
 
-Un scénario spécifique, lié à la géographie et au client, peut être la détection de véhicules au Mexique provenant des États-Unis,  
+Un scénario spécifique, lié à la géographie et au client est la détection de véhicules au Mexique provenant des États-Unis,  
 acquis via des sites d'enchères, et sur lesquels on observe sur les photos, des dommages antérieurs.  
 Ce genre de scénarios peut être développé en aval de la mise en production, en fonction des spécificités du client. 
 
@@ -410,14 +415,14 @@ Les missions au cours du stage furent
     \item \textbf{Création, amélioration et calibration de scénarios classiques} : Chez Shift, la plupart
      des data scientists sont assignés à un ou plusieurs clients. Leur mission principale consiste à assurer
       le suivi de la solution logicielle, développer des scénarios adaptés et les présenter aux clients.
-       Dans ce cadre, j’ai apporté un appui à mon encadrant de stage sur des projets impliquant trois clients d’Amérique latine.
+       Dans ce cadre, j'ai apporté un appui à mon encadrant de stage sur des projets impliquant trois clients d'Amérique latine.
        J'ai donc participé à l'amélioration et correction de nombreux scénarios, et au suivi du client.
     
-    \item \textbf{Machine Learning} : J’ai entraîné plusieurs modèles pour deux clients en Espagne. Ce travail comprenait 
+    \item \textbf{Machine Learning} : J'ai entraîné plusieurs modèles pour deux clients en Espagne. Ce travail comprenait 
     la génération de jeux de données, le prétraitement des variables, 
-    la détection de fuites (\textit{leakage}) dans les données, l’entraînement des modèles ainsi que leur mise en production.
+    la détection de fuites (\textit{leakage}) dans les données, l'entraînement des modèles ainsi que leur mise en production.
     
-    \item \textbf{Développement de cas démos} : J’ai collaboré avec l’équipe \textit{PreSales} dans le développement
+    \item \textbf{Développement de cas démos} : J'ai collaboré avec l'équipe \textit{PreSales} dans le développement
      de quinze cas démos, destinés à illustrer les capacités techniques de la solution auprès de clients potentiels.
 \end{itemize}
 
@@ -480,6 +485,276 @@ Cependant, modifier les scénarios existants ne suffit pas. En début de trimest
 des actions sont définies pour effectuer des modifications majeures ou pour créer de 
 nouveaux scénarios à partir de zéro. Voici deux exemples de scénarios que j'ai 
 développés au cours de ce stage.
+
+Dans les prochaines sections nous allons présenter deux scénarios que nous 
+avons construits de zéro. 
+
+\section{Scénario de responsabilité civile}
+
+L'assurance de responsabilité civile sert à indemniser un tiers en cas de dommages 
+causés par le véhicule. Il existe également une extension de la responsabilité civile, 
+c'est-à-dire que, si une autre personne que l'assuré conduit le véhicule, elle est 
+également couverte. Cette extension peut aussi protéger l'assuré lorsqu'il conduit un 
+véhicule autre que le sien.
+
+Il arrive parfois qu'un assuré bénéficiant de cette extension déclare avoir conduit un 
+véhicule non assuré au moment du sinistre.
+
+L'objectif est donc de développer un scénario qui, couplé à d'autres variables, permette 
+de détecter des cas suspects d'utilisation de l'extension de responsabilité civile. 
+Parfois, l'information liée à cette extension n'est pas explicitement présente dans les 
+données du contrat d'assurance. Dans ce cas, il est nécessaire de rechercher cette 
+information dans les notes rédigées par la personne ayant pris en charge le sinistre.
+
+Pour cela, une requête \texttt{REGEX} est utilisée afin d'extraire toute mention 
+éventuelle d'une extension de responsabilité civile.
+
+Shift dispose d'un framework complet pour la détection de langage naturel. Ce framework 
+est structuré par langue, et permet de définir des blocs ou concepts de base. Dans notre 
+cas, il s'agit d'un concept très simple, qui regroupe toutes les variations possibles de 
+l'expression \og extension de responsabilité civile\fg{}.
+
+Si on trouve la mention de "l'extension de résponsabilité civile", avec d'autres variables
+définis avec le client comme le modèle du véhicule, la ville du sinistre, 
+et autres, une alerte est envoyé au client.
+
+\section{Scénario de véhicules provenant de l'étranger}
+
+Dans le but de détecter des cas où les dommages subis par un véhicule pourraient être 
+antérieurs au sinistre déclaré, j'ai développé un scénario spécifique basé sur 
+l'origine du véhicule et la traçabilité de son historique.
+
+Le scénario commence par vérifier si le véhicule impliqué est d'origine étrangère. 
+Lorsqu'un véhicule est importé, il est possible qu'il ait déjà subi des dégâts avant 
+d'arriver dans le pays d'assurance, sans que ces dommages ne soient explicitement 
+mentionnés dans le dossier du sinistre. Pour cela, le scénario s'appuie sur le code VIN 
+(\textit{Vehicle Identification Number}), un identifiant unique attribué à chaque 
+véhicule. Grâce au VIN, il est possible de déterminer si le véhicule provient des 
+États-Unis.
+
+Une fois cette information confirmée, une recherche est effectuée sur Internet, 
+notamment sur des sites d'enchères automobiles spécialisés (tels que Copart ou IAAI), 
+afin de vérifier si le véhicule a déjà été mis en vente avec des dommages visibles. 
+Ces plateformes publient souvent des photos et des descriptions détaillées des véhicules 
+accidentés ou endommagés.
+
+Si le véhicule est retrouvé sur l'un de ces sites avec des dégâts antérieurs au sinistre 
+déclaré, une alerte est alors générée. Cette alerte peut être utilisée par le client 
+pour ouvrir une enquête approfondie, notamment pour vérifier si le sinistre a été 
+déclaré de bonne foi ou s'il s'agit d'une tentative de fraude consistant à faire passer 
+des dégâts anciens pour des dommages récents.
+
+Dans ce scénario on voit bien l'intérêt de croiser des données internes (contrat, sinistre, 
+VIN) avec des sources externes accessibles publiquement pour enrichir la détection de 
+fraudes. Il s'inscrit dans une logique d'investigation proactive, visant à identifier 
+des incohérences temporelles dans l'historique des véhicules assurés.
+
+\section{Machine Learning}
+
+L'objectif de ces scénarios c'est d'avoir des modèles de machine learning capables de détecter 
+les cas frauduleux, mais qui n'ont pas un motif précis comme dans les scénarios à règle. Il s'agit donc 
+d'un problème de \textbf{classification binaire}. L'une des contraintes les plus significatives 
+est le faible nombre de cas frauduleux présents dans le dataset, auquel s'ajoute le fait que 
+tous les éléments apparaissant comme "sans fraude" ne correspondent pas nécessairement à des sinistres 
+réellement non frauduleux. 
+
+\subsubsection{Présentation de LightGBM et contraintes du problème}
+
+LightGBM\footnote{\url{https://lightgbm.readthedocs.io}} est le framework choise pour l'entrainement,
+il s'agît d'un framework open source développé par Microsoft, implémentant l'algorithme de \textit{gradient boosting} 
+basé sur des arbres de décision. Il est conçu pour être particulièrement rapide et efficace sur de grands volumes de données, 
+tout en offrant une bonne capacité de généralisation. Parmi ses points forts, on note sa capacité à gérer directement des 
+variables catégorielles, à traiter des données bruitées et à optimiser l'utilisation de la mémoire.
+
+Dans notre cas, deux contraintes majeures rendent la détection de fraude complexe :
+\begin{itemize}
+    \item \textbf{Forte déséquilibre des classes} : le nombre de sinistres frauduleux est très faible par rapport au nombre total de sinistres, ce qui entraîne un risque que le modèle privilégie la prédiction de la classe majoritaire.
+    \item \textbf{Incertitude des labels "sans fraude"} : certaines observations étiquetées comme non frauduleuses peuvent en réalité être frauduleuses, mais n'ont pas été détectées comme telles au moment de la labellisation.
+\end{itemize}
+
+LightGBM propose plusieurs mécanismes permettant d'atténuer ces problèmes :
+\begin{itemize}
+    \item \textbf{Pondération des classes} (\textit{class weights}) : permet d'accorder plus d'importance aux exemples minoritaires, réduisant ainsi le biais en faveur de la classe majoritaire.
+    \item \textbf{Gestion robuste des données bruitées} : grâce à la structure en arbres de décision et à l'optimisation par \textit{leaf-wise growth}, LightGBM est moins sensible à la présence d'observations mal labellisées.
+    \item \textbf{Efficacité sur grands datasets} : sa rapidité d'entraînement permet d'explorer plus de configurations d'hyperparamètres pour optimiser la détection de fraude malgré la rareté des exemples positifs.
+\end{itemize}
+
+
+
+\subsubsection{Données et préparation}
+
+\subsection{Description des données}
+
+Les données utilisées dans le cadre de ce projet sont générées après le \textit{mapping} 
+et non directement à partir des données brutes du client. Le \textit{dataset} contient plusieurs 
+centaines de \textit{features}, mais cela ne signifie pas que toutes seront exploitées. 
+Une étape de \textbf{sélection de variables} est réalisée en fonction du modèle, du client et des données effectivement disponibles.
+
+Les features du dataset incluent notamment :
+\begin{itemize}
+    \item Identifiant du sinistre
+    \item Prénom de la personne
+    \item Âge de la personne
+    \item Date du sinistre
+    \item Marque du véhicule
+    \item Temps écoulé entre le sinistre et sa déclaration
+    \item Temps écoulé entre le sinistre et la souscription à l'assurance
+    \item Nombre de sinistres précédents
+    \item Nombre de blessés
+    \item Nombre de véhicules impliqués
+    \item Indicateur si le sinistre a eu lieu un jour férié
+    \item Indicateur si le véhicule est de luxe
+    \item Parties de la voiture endommagées
+    \item Temps écoulé entre le sinistre et la déclaration des blessures corporelles
+    \item Type de couverture de l'assuré
+\end{itemize}
+
+La variable cible (\textit{label}) indique si le sinistre correspond ou non à un cas de \textbf{fraude}.
+
+\subsubsection{Nettoyage et préparation des données}
+
+Nous disposons de deux \textit{datasets}, \textit{bodily\_injuries\_fraud} et \textit{material\_damages\_fraud}, qui sont chacun divisés en deux sous-ensembles :
+\begin{itemize}
+    \item Les données dites \og historiques \fg{}, correspondant à l'ensemble des sinistres enregistrés en 2024.
+    \item Les données dites \og récentes \fg{}, correspondant aux sinistres des trois derniers mois, à savoir mars, avril et mai 2025.
+\end{itemize}
+
+Cette distinction est nécessaire car les données évoluent au fil du temps, et toutes les informations ne sont pas toujours disponibles dès le départ.  
+Ainsi, le jeu de données \og historique \fg{} est utilisé pour l'entraînement et le test du modèle, tandis que le jeu \og récent \fg{} sert à la phase de validation.  
+Bien que les deux ensembles contiennent des \textit{features} globalement similaires, certaines variables peuvent présenter des différences, ce qui nécessite une harmonisation.
+Avant toute modélisation, une étape de \textbf{nettoyage et préparation des données} est effectuée afin d'assurer leur cohérence et leur qualité. Cette étape comprend :
+
+\begin{itemize}
+    \item \textbf{Filtrage des sinistres dupliqués} : suppression des entrées présentant le même identifiant ou des informations identiques sur plusieurs variables clés.
+    \item \textbf{Uniformisation des types de données} : vérification que les champs numériques, textuels et de dates sont correctement typés dans l'ensemble des fichiers.
+    \item \textbf{Harmonisation des formats} : par exemple, s'assurer que les dates sont dans un format unique et que les noms de marques ou types de couverture ne présentent pas de variations d'orthographe.
+    \item \textbf{Vérification des valeurs aberrantes} : détection et traitement des âges, durées ou montants manifestement incohérents.
+    \item \textbf{Gestion des valeurs manquantes} : identification des champs incomplets et choix d'une stratégie adaptée (imputation, suppression, etc.).
+\end{itemize}
+
+On effectue aussi une comparaison entre les datasets historique et récents pour voir quelles variables sont présentes dans les 
+données historique et pas dans les données récentes. Ainsi, cette comparaison, la vérification de valeurs aberrantes et gestion de valeurs marquantes 
+peut être fait avec pandas et leur outil de profilling. Le package de profilling nous permet 
+d'avoir une vue d'ensemble sur les données, et avoir des éléments quantitatifs précis pour chaque feature. On peut ainsi savoir combien 
+d'élèments manquants nous avons, les différents ecarts interquartiles si cela s'agit de variables quantitatives, combien de catégories avons nous s'il sagit d'unevariqble 
+catégorique et leurs effectifs correspondant. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.80\textwidth]{ProfillingVariables.png}
+    \caption{Liste de variables dans pandas profilling}
+    \label{fig:entonnoir}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.50\textwidth]{FpVehicle.png}
+    \caption{Liste de variables dans pandas profilling}
+    \label{fig:entonnoir}
+\end{figure}
+
+Ce processus nous permet de comparer le data set à d'autres data set où on sait très bien que le modèle marche, ce qui pourrait nous permettre 
+d'utiliser les mêmes paramètres lors de l'entrainement. On compare donc toujours deux entreprises qui ont à peu-près le même nombre 
+de sinistres par an et le même taux de fraude. 
+
+\subsubsection{Entrainement}
+
+Voici les paramètres du modèle LightGBM concernant l'entraînement : 
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+metric & F1\_score \\
+objective & Binary \\
+verbosity & -1 \\
+eta & 0.1 \\
+feature\_fraction & 0.9 \\
+min\_data\_in\_leaf & 10 \\
+max\_delta\_step & 1 \\
+max\_depth & 10 \\
+lambda\_l2 & 5 \\
+\bottomrule
+\end{tabular}
+\captionof{table}{LightGBM paramètres d'entraînement}
+\end{center}
+
+On peut utiliser aussi un module nommé LightGBMUDAHelper, qui permet de faire une séléction des features 
+les plus importantes. Une optimisation est fait de sorte à utiliser qu'une partie des features. 
+Ce module nous permet aussi de trouver les meilleurs hyperparamètres pour notre modèle.
+
+\subsubsection{Métriques d'évaluation}
+
+Pour évaluer la performance du modèle, plusieurs métriques sont utilisées. 
+
+La \textbf{précision} (\textit{Precision}) mesure la proportion de sinistres détectés comme frauduleux qui le sont réellement: 
+$$
+Precision = \frac{TP}{TP + FP}
+$$
+où $TP$ est le nombre de vrais positifs et $FP$ le nombre de faux positifs.
+
+
+Le \textbf{rappel} (Recall) mesure la proportion de sinistres frauduleux correctement détectés par le modèle :
+$$
+Recall = \frac{TP}{TP + FN}
+$$
+où $FN$ est le nombre de faux négatifs.
+
+Le \textbf{F1-score} combine la précision et le rappel (\textit{Recall}) en un seul score harmonique: 
+$$
+F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision} + {Recall},
+$$
+ce qui permet de mieux évaluer la performance sur des classes déséquilibrées, comme c'est le cas pour la fraude.
+
+Enfin, le \textbf{Alert Rate Ratio (ARR)} est calculé comme le ratio du taux d'alerte sur le dataset récent par rapport au dataset historique :
+
+$$
+ARR = \frac{Alert Rate_{recent}}{Alert Rate_{historique}}.
+$$
+Cette métrique est cruciale pour s'assurer que le modèle maintient une fréquence d'alerte cohérente dans le temps.
+Un ARR proche de 1 garantit que le modèle n'alerte ni trop ni trop peu sur les nouvelles données par rapport aux données historiques.
+
+\subsubsection{Selection du modèle et déploiement}
+
+Le modèle est choisi en fonction de son alert rate et sa précision. Par la suite faut choisir un 
+\textit{threshold} en fonction du nombres d'alertes qu'on souhaite recevoir par mois. 
+Dans ce cas on souhaite recevoir 2 alertes par mois pour les modèles de dommages corporels 
+et 24 à 26 alertes par mois pour les modèles de dommages matériels. 
+\subsection{Mise en production du modèle}
+
+Une fois le modèle entraîné et validé, il est nécessaire de le rendre exploitable en production. 
+Pour cela, plusieurs fichiers sont générés lors de la phase finale :  
+
+\begin{itemize}
+    \item des fichiers \texttt{JSON}, qui contiennent notamment la description du modèle LightGBM 
+    (poids, structure des arbres, paramètres retenus) ainsi que la liste des variables utilisées (features) avec leurs types ;  
+    \item un fichier \texttt{YML}, qui sert de configuration et permet d'assurer la cohérence du déploiement 
+    (par exemple l'ordre des variables en entrée).  
+\end{itemize}
+
+Ces fichiers sont ensuite intégrés dans un pipeline de déploiement. 
+Dans notre cas, le processus repose sur un enchaînement entre \textbf{TeamCity} (build) et \textbf{Octopus} (déploiement). 
+Le notebook ayant servi à l'entraînement n'est pas déployé : seule la version sérialisée du modèle est transférée vers le serveur interne.  
+
+Le serveur interne expose alors une \textbf{API REST}, qui rend le modèle accessible à des services applicatifs. 
+Le logiciel en \textbf{C\#} envoie une requête contenant les variables d'un sinistre au format attendu. 
+Le serveur retourne en réponse une probabilité de fraude, c'est-à-dire une valeur comprise entre 0 et 1.  
+
+Le \textbf{threshold} est ensuite appliqué. 
+Si la probabilité reçue est supérieure au seuil défini, une alerte est déclenchée. 
+Ce seuil n'est pas fixe : il dépend du type de modèle et du client. 
+Par exemple, le modèle appliqué aux sinistres matériels peut avoir un seuil différent de celui utilisé pour les sinistres corporels.  
+
+Enfin, la \textbf{mise à jour des modèles} est un aspect essentiel du processus. 
+Actuellement, elle est réalisée manuellement : lorsque de nouvelles données sont disponibles, il faut réentraîner un modèle, 
+réexporter les fichiers JSON/YML et redéployer le tout. 
+Cette étape est cruciale pour s'assurer que le modèle reste pertinent et ne repose pas sur des variables biaisées ou trop tardives. 
+À titre d'exemple, un des modèles testés utilisait la variable indiquant si le client avait une représentation légale. 
+Or, cette information est souvent disponible uniquement à un stade avancé du dossier, et elle est fortement corrélée à la fraude. 
+Il a donc fallu réentraîner le modèle sans inclure cette variable afin d'améliorer sa robustesse et son applicabilité réelle.  
+
+\subsubsection{Résultats et présentation finale}
+
 
 \section {Votre contribution}
 

@@ -15,35 +15,46 @@
 \contentsline {section}{\numberline {2.6}Les missions}{12}{section.2.6}%
 \contentsline {chapter}{\numberline {3}Les missions}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Amélioration et création de scénarios}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Votre contribution}{14}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Votre bilan}{14}{section.3.3}%
-\contentsline {chapter}{\numberline {4}La forme}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Typographie}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}L'orthographe et la grammaire}{15}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Le style}{15}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Numérotez}{16}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Les illustrations}{16}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Le niveau de détail}{16}{section.4.6}%
-\contentsline {section}{\numberline {4.7}La bibliographie}{17}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Conclusion}{19}{chapter.5}%
-\contentsline {chapter}{\numberline {A}La soutenance}{21}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Checklist pour le mémoire}{23}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Structuration du document}{23}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Présentation de l'entreprise}{23}{section.B.2}%
-\contentsline {section}{\numberline {B.3}Présentation des missions}{23}{section.B.3}%
-\contentsline {section}{\numberline {B.4}Présentation du travail effectué}{23}{section.B.4}%
-\contentsline {section}{\numberline {B.5}Conclusions/réflexions}{24}{section.B.5}%
-\contentsline {section}{\numberline {B.6}Expression}{24}{section.B.6}%
-\contentsline {section}{\numberline {B.7}Orthographe/grammaire}{24}{section.B.7}%
-\contentsline {section}{\numberline {B.8}Iconographie}{24}{section.B.8}%
-\contentsline {section}{\numberline {B.9}Bibliographie}{24}{section.B.9}%
-\contentsline {chapter}{\numberline {C}Checklist pour la soutenance}{25}{appendix.C}%
-\contentsline {section}{\numberline {C.1}Structuration}{25}{section.C.1}%
-\contentsline {section}{\numberline {C.2}Présentation du contexte et des objectifs}{25}{section.C.2}%
-\contentsline {section}{\numberline {C.3}Présentation du travail réalisé}{25}{section.C.3}%
-\contentsline {section}{\numberline {C.4}Bilan, conclusion, réflexions}{25}{section.C.4}%
-\contentsline {section}{\numberline {C.5}Qualité des diapos}{25}{section.C.5}%
-\contentsline {section}{\numberline {C.6}Gestion du temps}{26}{section.C.6}%
-\contentsline {section}{\numberline {C.7}Élocution, discours, posture}{26}{section.C.7}%
-\contentsline {section}{\numberline {C.8}Réponses aux questions}{26}{section.C.8}%
-\contentsline {chapter}{\numberline {D}Bibliographie}{27}{appendix.D}%
+\contentsline {section}{\numberline {3.2}Scénario de responsabilité civile}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Scénario de véhicules provenant de l'étranger}{14}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Machine Learning}{15}{section.3.4}%
+\contentsline {subsubsection}{Présentation de LightGBM et contraintes du problème}{15}{section*.5}%
+\contentsline {subsubsection}{Données et préparation}{16}{section*.6}%
+\contentsline {subsection}{\numberline {3.4.1}Description des données}{16}{subsection.3.4.1}%
+\contentsline {subsubsection}{Nettoyage et préparation des données}{16}{section*.7}%
+\contentsline {subsubsection}{Entrainement}{17}{section*.10}%
+\contentsline {subsubsection}{Métriques d'évaluation}{18}{section*.11}%
+\contentsline {subsubsection}{Selection du modèle et déploiement}{19}{section*.12}%
+\contentsline {subsection}{\numberline {3.4.2}Mise en production du modèle}{19}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Votre contribution}{19}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Votre bilan}{20}{section.3.6}%
+\contentsline {chapter}{\numberline {4}La forme}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Typographie}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.2}L'orthographe et la grammaire}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Le style}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Numérotez}{22}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Les illustrations}{22}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Le niveau de détail}{22}{section.4.6}%
+\contentsline {section}{\numberline {4.7}La bibliographie}{23}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Conclusion}{25}{chapter.5}%
+\contentsline {chapter}{\numberline {A}La soutenance}{27}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Checklist pour le mémoire}{29}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Structuration du document}{29}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Présentation de l'entreprise}{29}{section.B.2}%
+\contentsline {section}{\numberline {B.3}Présentation des missions}{29}{section.B.3}%
+\contentsline {section}{\numberline {B.4}Présentation du travail effectué}{29}{section.B.4}%
+\contentsline {section}{\numberline {B.5}Conclusions/réflexions}{30}{section.B.5}%
+\contentsline {section}{\numberline {B.6}Expression}{30}{section.B.6}%
+\contentsline {section}{\numberline {B.7}Orthographe/grammaire}{30}{section.B.7}%
+\contentsline {section}{\numberline {B.8}Iconographie}{30}{section.B.8}%
+\contentsline {section}{\numberline {B.9}Bibliographie}{30}{section.B.9}%
+\contentsline {chapter}{\numberline {C}Checklist pour la soutenance}{31}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Structuration}{31}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Présentation du contexte et des objectifs}{31}{section.C.2}%
+\contentsline {section}{\numberline {C.3}Présentation du travail réalisé}{31}{section.C.3}%
+\contentsline {section}{\numberline {C.4}Bilan, conclusion, réflexions}{31}{section.C.4}%
+\contentsline {section}{\numberline {C.5}Qualité des diapos}{31}{section.C.5}%
+\contentsline {section}{\numberline {C.6}Gestion du temps}{32}{section.C.6}%
+\contentsline {section}{\numberline {C.7}Élocution, discours, posture}{32}{section.C.7}%
+\contentsline {section}{\numberline {C.8}Réponses aux questions}{32}{section.C.8}%
+\contentsline {chapter}{\numberline {D}Bibliographie}{33}{appendix.D}%
